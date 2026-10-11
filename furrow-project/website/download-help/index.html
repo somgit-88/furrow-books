@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download Help — Furrow</title>
+<meta name="description" content="Help with expired or used Furrow download links, and how to request a new one.">
+<link rel="canonical" href="https://furrow-books.pages.dev/download-help/">
+<meta property="og:url" content="https://furrow-books.pages.dev/download-help/">
+<meta property="og:title" content="Download Help — Furrow">
+<meta property="og:description" content="Help with expired or used Furrow download links, and how to request a new one.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Furrow">
+<meta name="theme-color" content="#141b12">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<link rel="stylesheet" href="/assets/css/pages.css">
+<style>
+  .card{padding:26px; margin-top:20px;}
+  input{width:100%; padding:13px 16px; margin-bottom:12px; border-radius:10px; border:1px solid var(--glass-border); background:var(--glass-fill-strong); color:var(--parchment-100); font-family:var(--mono); font-size:0.9rem; box-sizing:border-box;}
+  button{width:100%; padding:14px; border-radius:10px; border:none; background:var(--wheat-500); color:var(--soil-900); font-family:var(--mono); font-weight:600; text-transform:uppercase; font-size:0.85rem; cursor:pointer;}
+  #reissueStatus{margin-top:12px; font-family:var(--mono); font-size:0.85rem; opacity:0.8;}
+</style>
+</head>
+<body>
+<header class="glass"><a href="/" class="wordmark"><span class="mark"></span>FURROW</a></header>
+<main>
+  <h1>Download Help</h1>
+
+  <h2>Why did my link stop working?</h2>
+  <p>Every download link works <strong>once</strong> and expires after a short window — this protects your purchase from being shared or resold. If you've already downloaded successfully, that's expected behavior, not an error.</p>
+
+  <h2>I haven't downloaded yet, but my link says expired or used</h2>
+  <p>Use the form below to request a fresh link. It only works if the email matches the one used for a <em>paid</em> order.</p>
+
+  <div class="card glass">
+    <input type="text" id="reissueOrderId" placeholder="Order ID (e.g. ord_xxxxxxxx)">
+    <input type="email" id="reissueEmail" placeholder="Email used at checkout">
+    <button id="reissueBtn">Get a New Link</button>
+    <div id="reissueStatus"></div>
+  </div>
+
+  <h2>Still stuck?</h2>
+  <p>Contact us via our <a href="/contact/">Contact page</a> with your order ID and we'll sort it out manually.</p>
+</main>
+
+<script src="/assets/js/download-help.js"></script>
+</body>
+</html>

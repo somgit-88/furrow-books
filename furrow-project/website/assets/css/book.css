@@ -1,0 +1,75 @@
+/* Furrow — book page styles. Theme colors are the CSS variables at the top of :root. */
+:root{
+    --soil-900:#141b12;
+    --glass-fill: rgba(244,236,216,0.08);
+    --glass-fill-strong: rgba(244,236,216,0.14);
+    --glass-border: rgba(244,236,216,0.22);
+    --wheat-500:#d9a441;
+    --wheat-400:#ecc36c;
+    --rust-600:#b3492f;
+    --sky-500:#4f8f8c;
+    --parchment-100:#f4ecd8;
+    --parchment-050:#faf5e8;
+    --display: 'Fraunces', serif;
+    --body: 'Spectral', serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--soil-900); color:var(--parchment-100); font-family:var(--body); line-height:1.6; position:relative; overflow-x:hidden;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit;}
+
+  .backdrop{position:fixed; inset:0; z-index:-1; overflow:hidden;}
+  .blob{position:absolute; border-radius:50%; filter:blur(90px); opacity:0.5;}
+  .blob.b1{width:50vw; height:50vw; top:-16vw; left:-10vw; background:var(--wheat-500);}
+  .blob.b2{width:42vw; height:42vw; bottom:-14vw; right:-8vw; background:var(--sky-500); opacity:0.38;}
+
+  .glass{background:var(--glass-fill); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%); border:1px solid var(--glass-border); box-shadow:0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.12); border-radius:16px;}
+
+  header{display:flex; align-items:center; justify-content:space-between; padding:16px 5vw; margin:18px 3vw 0; position:sticky; top:18px; z-index:50; border-radius:20px;}
+  .wordmark{font-family:var(--display); font-weight:700; font-size:1.4rem; display:flex; align-items:center; gap:10px;}
+  .wordmark .mark{width:11px;height:11px;background:var(--wheat-500); transform:rotate(45deg); display:inline-block;}
+  .back-link{font-family:var(--mono); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.05em; opacity:0.75;}
+  .back-link:hover{opacity:1; color:var(--wheat-400);}
+
+  main{max-width:1200px; margin:0 auto; padding:5vw;}
+  #loadingState{text-align:center; padding:120px 20px; font-family:var(--mono); opacity:0.6;}
+  #notFoundState{display:none; text-align:center; padding:120px 20px;}
+  #notFoundState h1{font-family:var(--display); font-size:2rem;}
+
+  .book-layout{display:none; grid-template-columns:0.9fr 1.1fr; gap:5vw; align-items:start;}
+  .gallery-wrap{position:sticky; top:110px;}
+  .main-cover{border-radius:18px; overflow:hidden; aspect-ratio:3/4; background:linear-gradient(160deg, rgba(217,164,65,0.3), rgba(79,143,140,0.22)); display:flex; align-items:center; justify-content:center; font-family:var(--display); font-size:1.2rem; text-align:center; padding:24px; position:relative;}
+  .main-cover img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .thumb-row{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;}
+  .thumb{width:70px; height:93px; border-radius:8px; overflow:hidden; border:1px solid var(--glass-border); cursor:pointer; opacity:0.7; transition:opacity .18s;}
+  .thumb:hover, .thumb.active{opacity:1; border-color:var(--wheat-400);}
+  .thumb img{width:100%; height:100%; object-fit:cover;}
+
+  .eyebrow{font-family:var(--mono); font-size:0.76rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--wheat-400); margin-bottom:14px; display:block;}
+  h1.book-title{font-family:var(--display); font-weight:600; font-size:clamp(1.9rem, 3.4vw, 2.8rem); line-height:1.08; margin:0 0 10px;}
+  .book-author{opacity:0.68; margin-bottom:22px; font-size:1rem;}
+  .book-meta-row{display:flex; gap:22px; flex-wrap:wrap; font-family:var(--mono); font-size:0.8rem; opacity:0.65; margin-bottom:26px;}
+  .book-desc{font-size:1.05rem; opacity:0.88; margin-bottom:30px; max-width:60ch;}
+
+  .buy-panel{padding:26px; margin-bottom:30px;}
+  .price-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;}
+  .price-big{font-family:var(--mono); font-size:1.8rem; font-weight:600; color:var(--wheat-400);}
+  .currency-toggle{display:flex; border-radius:20px; overflow:hidden; border:1px solid var(--glass-border);}
+  .currency-toggle button{background:none; border:none; color:var(--parchment-100); padding:8px 14px; font-family:var(--mono); font-size:0.78rem; cursor:pointer; opacity:0.6;}
+  .currency-toggle button.active{background:var(--wheat-500); color:var(--soil-900); opacity:1; font-weight:600;}
+  .btn{width:100%; font-family:var(--mono); font-size:0.9rem; letter-spacing:0.04em; text-transform:uppercase; padding:16px 26px; border-radius:12px; border:none; cursor:pointer; background:var(--wheat-500); color:var(--soil-900); font-weight:600; transition:transform .15s, background .2s;}
+  .btn:hover{transform:translateY(-2px); background:var(--wheat-400);}
+  .buy-note{font-family:var(--mono); font-size:0.7rem; opacity:0.45; text-align:center; margin-top:12px;}
+
+  .ad-slot{margin:0 0 30px; border-radius:16px; display:flex; align-items:center; justify-content:center; padding:18px; min-height:100px; border:1px dashed var(--glass-border); background:rgba(244,236,216,0.04);}
+  .ad-slot .ad-label{font-family:var(--mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.4;}
+
+  .category-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:26px;}
+  .tag-chip{font-family:var(--mono); font-size:0.72rem; padding:6px 14px; border-radius:20px; border:1px solid var(--glass-border); background:var(--glass-fill);}
+
+  @media (max-width:860px){
+    .book-layout{grid-template-columns:1fr; gap:32px;}
+    .gallery-wrap{position:static; max-width:340px; margin:0 auto;}
+  }

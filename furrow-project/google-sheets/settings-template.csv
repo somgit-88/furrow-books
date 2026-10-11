@@ -1,0 +1,7 @@
+setting_key,setting_value,notes
+worker_base_url,,"Your deployed Cloudflare Worker URL, e.g. https://furrow-payments.yourname.workers.dev — required for checkout, samples, and reissues to work"
+default_currency,inr,"inr or usd — sets which price shows first before location detection runs"
+adsense_client_id,,"Your AdSense publisher ID, e.g. ca-pub-1234567890123456 — leave blank until approved"
+adsense_slot_leaderboard,,"Ad unit slot ID for the leaderboard placements"
+adsense_slot_infeed,,"Ad unit slot ID for in-feed ads inside the catalog and blog"
+adsense_slot_article,,"Ad unit slot ID for the in-article/book-page ad"

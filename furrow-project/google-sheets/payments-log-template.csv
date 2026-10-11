@@ -1,0 +1,2 @@
+order_id,date,customer_email,book_id,book_title,amount,currency,payment_method,status,link_expiry,downloaded
+ord_00001,2026-08-16,example@customer.com,bk001,Mastering Agro Exports,299,INR,razorpay,success,2026-08-16 18:30,Yes

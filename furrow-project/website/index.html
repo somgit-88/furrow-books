@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furrow — Agricultural Ebooks for the World</title>
+<meta name="description" content="Furrow publishes practical agricultural ebooks for farmers, exporters and agribusiness owners. Instant digital download, worldwide.">
+<link rel="canonical" href="https://furrow-books.pages.dev/">
+<meta property="og:url" content="https://furrow-books.pages.dev/">
+<meta property="og:title" content="Furrow — Agricultural Ebooks for the World">
+<meta property="og:description" content="Furrow publishes practical agricultural ebooks for farmers, exporters and agribusiness owners. Instant digital download, worldwide.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Furrow">
+<meta name="theme-color" content="#141b12">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Spectral:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<link rel="stylesheet" href="/assets/css/home.css">
+</head>
+<body>
+
+<div class="backdrop">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="grain"></div>
+</div>
+
+<div class="topbar">
+  <span>&#128230; Instant Download on Every Order</span>
+  <span>&#127991; New Reader Offer — Use Code READ10</span>
+  <span>&#128274; Secure Checkout via Razorpay &amp; Wise</span>
+</div>
+
+<header class="glass">
+  <a href="#" class="wordmark-wrap">
+    <span class="wordmark"><span class="mark"></span>FURROW</span>
+    <span class="wordmark-sub">Read More, Grow More</span>
+  </a>
+  <nav>
+    <a href="#catalog">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#bestsellers">Best Sellers</a>
+    <a href="#blog">Journal</a>
+    <a href="#about-teaser">About Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hdr-actions">
+    <div class="search-box glass">
+      <span>&#128269;</span>
+      <input id="searchInput" type="text" placeholder="Search titles...">
+    </div>
+    <div class="currency-toggle glass" id="currencyToggle" title="Prices auto-detect your region — tap to override">
+      <button data-cur="inr" class="active">₹ INR</button>
+      <button data-cur="usd">$ USD</button>
+    </div>
+    <button id="refreshBtn" class="icon-btn glass" title="Refresh latest content from the spreadsheet">&#8635;</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="eyebrow" id="heroEyebrow">Field-tested knowledge, in ebook form</span>
+    <h1 id="heroTitle">Grown from the soil.<br><em>Written for the world.</em></h1>
+    <p class="lede" id="heroLede">Practical agricultural ebooks for farmers, exporters and agribusiness owners — delivered instantly, read anywhere, from India to the US, UK, UAE and Australia.</p>
+    <div class="hero-ctas">
+      <a href="#catalog" class="btn btn-primary">Shop Now</a>
+      <a href="#categories" class="btn btn-ghost">Explore Collection</a>
+    </div>
+    <div class="hero-dots" id="heroDots">
+      <button class="active" data-slide="0"></button>
+      <button data-slide="1"></button>
+      <button data-slide="2"></button>
+    </div>
+  </div>
+  <div class="ledger glass">
+    <div class="ledger-title">Catalog, at a glance</div>
+    <div class="ledger-row"><span>Titles in print</span><span class="num" id="statCount">—</span></div>
+    <div class="ledger-row"><span>Categories</span><span class="num" id="statCats">—</span></div>
+    <div class="ledger-row"><span>Delivery</span><span class="num" style="font-size:1rem;">Instant</span></div>
+    <div class="ledger-row"><span>Format</span><span class="num" style="font-size:1rem;">PDF</span></div>
+  </div>
+</section>
+
+<div class="ad-slot leaderboard glass" data-ad-type="leaderboard">
+  <span class="ad-label">Advertisement</span>
+  <!-- AdSense unit: leaderboard/banner, e.g. 728x90 or responsive "display" unit -->
+</div>
+
+<div class="trust">
+  <div class="glass trust-item"><b>Instant Download</b>Your link unlocks the moment payment is confirmed.</div>
+  <div class="glass trust-item"><b>Secure Payment</b>Checkout via Razorpay &amp; Wise — 100% safe and encrypted.</div>
+  <div class="glass trust-item"><b>Genuine Content</b>Every title is original, field-tested, and author-verified.</div>
+  <div class="glass trust-item"><b>Easy Support</b>Questions or issues? We read and reply to every message.</div>
+  <div class="glass trust-item"><b>Read Anywhere</b>Clean, print-ready PDFs that open on any device.</div>
+</div>
+
+<section id="categories">
+  <div class="section-head">
+    <div>
+      <h2>Shop by Category</h2>
+      <p>Jump straight to the kind of knowledge you're after.</p>
+    </div>
+  </div>
+  <div class="category-row glass" style="padding:20px; border-radius:18px;" id="categoryCircles"></div>
+</section>
+
+<section id="bestsellers">
+  <div class="section-head">
+    <div>
+      <h2>Best Sellers</h2>
+      <p>Our most-downloaded titles, picked by readers like you.</p>
+    </div>
+    <a href="#catalog" class="view-all">View All &rarr;</a>
+  </div>
+  <div class="rail-wrap">
+    <button class="rail-arrow left glass" id="railLeft">&#8592;</button>
+    <div class="rail" id="bestSellerRail"></div>
+    <button class="rail-arrow right glass" id="railRight">&#8594;</button>
+  </div>
+</section>
+
+<section id="newreleases">
+  <div class="section-head">
+    <div>
+      <h2>New Releases</h2>
+      <p>Just added to the catalog.</p>
+    </div>
+    <a href="#catalog" class="view-all">View All &rarr;</a>
+  </div>
+  <div class="rail-wrap">
+    <button class="rail-arrow left glass" id="railLeftNew">&#8592;</button>
+    <div class="rail" id="newReleaseRail"></div>
+    <button class="rail-arrow right glass" id="railRightNew">&#8594;</button>
+  </div>
+</section>
+
+<section id="catalog">
+  <div class="section-head">
+    <div>
+      <h2>The Catalog</h2>
+      <p>Pulled live from our running inventory. Prices shown in the currency you pick above — pay how it suits you.</p>
+    </div>
+  </div>
+
+  <div class="chip-row" id="typeChips" style="margin-bottom:14px;"></div>
+
+  <div class="chip-row" id="categoryChips">
+    <button class="chip active" data-cat="all">All Books</button>
+  </div>
+
+  <div class="grid" id="bookGrid">
+    <div class="empty">Loading catalog…</div>
+  </div>
+</section>
+
+<div class="promo-duo">
+  <div class="promo-card glass">
+    <span class="eyebrow">Limited Time Offer</span>
+    <h3>Up to 25% Off Selected Titles</h3>
+    <a href="#catalog" class="btn btn-primary" style="width:fit-content;">Shop the Deals</a>
+  </div>
+  <div class="promo-card glass">
+    <span class="eyebrow">New Arrivals</span>
+    <h3>Fresh Reads, Just Added</h3>
+    <a href="#catalog" class="btn btn-ghost" style="width:fit-content;">Explore Now</a>
+  </div>
+</div>
+
+<div class="ad-slot leaderboard glass" data-ad-type="infeed">
+  <span class="ad-label">Advertisement</span>
+  <!-- AdSense unit: "in-feed" ad, sits between the catalog and the trust strip -->
+</div>
+
+<div class="capture glass">
+  <span class="eyebrow" style="margin-bottom:0;">Stay in the loop</span>
+  <h2>New titles, before anyone else hears about them</h2>
+  <p>Join the reading list for new releases, export-market updates and the occasional free chapter. No spam — just what's useful.</p>
+  <form class="capture-form" id="emailForm">
+    <input type="email" id="emailInput" placeholder="you@example.com" required>
+    <button type="submit" class="btn btn-primary">Join the list</button>
+  </form>
+  <div class="capture-note" id="captureNote">We'll only use this to send you book updates.</div>
+</div>
+
+<section id="reviews">
+  <div class="section-head">
+    <div>
+      <h2>What Readers Say</h2>
+      <p>Real messages from customers — shown here only when we choose to feature them.</p>
+    </div>
+  </div>
+  <div class="blog-grid" id="testimonialGrid">
+    <div class="empty">Loading messages…</div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="section-head">
+    <div>
+      <h2>From the Journal</h2>
+      <p>Field notes, export guides and farming know-how — free to read, written to help you decide what to grow next.</p>
+    </div>
+  </div>
+  <div class="blog-grid" id="blogGrid">
+    <div class="empty">Loading journal…</div>
+  </div>
+
+  <div class="ad-slot in-article glass" data-ad-type="article" style="margin-top:28px;">
+    <span class="ad-label">Advertisement</span>
+    <!-- AdSense unit: sits below the journal teasers. On individual blog post
+         pages (once built), also place one unit after the 2nd-3rd paragraph
+         of the article body — this is typically AdSense's best-performing spot. -->
+  </div>
+</section>
+
+<section id="about-teaser">
+  <div class="promo-card glass" style="text-align:center; max-width:700px; margin:0 auto;">
+    <span class="eyebrow">Our Story</span>
+    <h3>Field-Tested Knowledge, Published for the World</h3>
+    <p style="opacity:0.75; font-size:0.95rem; margin:10px 0 18px;">Furrow publishes practical agricultural ebooks for farmers, exporters and agribusiness owners — written to be used, not just read.</p>
+    <a href="/about/" class="btn btn-ghost" style="width:fit-content; margin:0 auto;">Learn More About Us</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="capture glass">
+    <span class="eyebrow" style="margin-bottom:0;">Talk to Us</span>
+    <h2>Have something to say — good or bad?</h2>
+    <p>Send us a message directly. We read every one, even the ones we don't publish.</p>
+    <form class="capture-form" id="messageForm" style="flex-direction:column; max-width:480px; width:100%;">
+      <input type="text" id="msgName" placeholder="Your name" required>
+      <input type="email" id="msgEmail" placeholder="you@example.com" required>
+      <textarea id="msgText" placeholder="Your message..." required rows="4"
+        style="padding:14px 18px; border-radius:12px; border:1px solid var(--glass-border); background:var(--glass-fill-strong); color:var(--parchment-100); font-family:var(--body); font-size:0.95rem; resize:vertical;"></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+    <div class="capture-note" id="msgNote">Messages are private by default — we only publish the ones we choose to.</div>
+  </div>
+</section>
+
+<footer class="glass" id="about">
+  <div>
+    <a href="#" class="wordmark"><span class="mark"></span>FURROW</a>
+    <p>An independent publisher of practical agricultural knowledge, sold as ebooks to readers and exporters worldwide.</p>
+  </div>
+  <div class="fcol">
+    <div class="fcol-title">Shop</div>
+    <a href="#catalog">All Books</a>
+    <a href="#categories">Categories</a>
+    <a href="#">Featured</a>
+  </div>
+  <div class="fcol">
+    <div class="fcol-title">Company</div>
+    <a href="#blog">Journal</a>
+    <a href="/about/">About Us</a>
+    <a href="/contact/">Contact</a>
+  </div>
+  <div class="fcol">
+    <div class="fcol-title">Support</div>
+    <a href="/payment-help/">Payment Help</a>
+    <a href="/download-help/">Download Help</a>
+    <a href="/digital-delivery/">Digital Delivery</a>
+    <a href="/refund-policy/">Refund Policy</a>
+    <a href="/terms-and-conditions/">Terms &amp; Conditions</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
+  </div>
+</footer>
+<div class="bottom-bar">
+  © 2026 Furrow. Payments secured by Razorpay &amp; Wise.
+  <div class="pay-badges">
+    <span class="pay-badge">RAZORPAY</span>
+    <span class="pay-badge">WISE</span>
+    <span class="pay-badge">UPI</span>
+  </div>
+</div>
+
+<script src="/assets/js/home.js"></script>
+
+</body>
+</html>

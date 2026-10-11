@@ -1,0 +1,3 @@
+message_id,name,email,message,date,visible,category,your_reply,reply_sent
+msg001,Priya S.,priya@example.com,"The export guide saved me weeks of guessing on documentation. Clear and practical.",2026-08-10,Yes,praise,"Thank you so much, Priya! Glad it helped.",Yes
+msg002,Daniel K.,daniel@example.com,"Good content, would love more case studies from Australian buyers specifically.",2026-08-12,Yes,suggestion,,

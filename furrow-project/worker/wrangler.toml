@@ -1,0 +1,26 @@
+name = "furrow-payments"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "furrow-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"   # from: wrangler d1 create furrow-db
+
+# Non-secret config -- safe to commit. Actual secrets (listed in worker.js's
+# header comment) are set separately and never go in this file:
+#   wrangler secret put RAZORPAY_KEY_ID
+#   wrangler secret put RAZORPAY_KEY_SECRET
+#   wrangler secret put RAZORPAY_WEBHOOK_SECRET
+#   wrangler secret put CLOUDINARY_CLOUD_NAME
+#   wrangler secret put CLOUDINARY_API_KEY
+#   wrangler secret put CLOUDINARY_API_SECRET
+#   wrangler secret put ADMIN_API_KEY
+#   wrangler secret put BOOKS_CSV_URL
+[vars]
+SITE_URL = "https://furrow-books.pages.dev"   # used for links on download error pages
+TOKEN_EXPIRY_MINUTES = "30"   # 15, 30, or 60 -- configurable here, no code change needed
+
+# Optional: run product sync automatically every hour instead of manually
+# [triggers]
+# crons = ["0 * * * *"]
