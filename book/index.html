@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furrow — Book</title>
+<meta name="description" content="Book details, preview and instant digital download from Furrow.">
+<meta property="og:title" content="Furrow — Book">
+<meta property="og:description" content="Book details, preview and instant digital download from Furrow.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Furrow">
+<meta name="theme-color" content="#141b12">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Spectral:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<link rel="stylesheet" href="/assets/css/book.css">
+</head>
+<body>
+
+<div class="backdrop"><div class="blob b1"></div><div class="blob b2"></div></div>
+
+<header class="glass">
+  <a href="/" class="wordmark"><span class="mark"></span>FURROW</a>
+  <a href="/" class="back-link">&larr; Back to catalog</a>
+</header>
+
+<main>
+  <div id="loadingState">Loading book…</div>
+
+  <div id="notFoundState">
+    <h1>Book not found</h1>
+    <p style="opacity:0.65;">This title may have been removed or the link is incorrect.</p>
+    <a href="/" class="btn" style="max-width:240px; margin:20px auto 0; display:block; text-align:center;">Back to catalog</a>
+  </div>
+
+  <div class="book-layout" id="bookLayout">
+    <div class="gallery-wrap">
+      <div class="main-cover glass" id="mainCover"></div>
+      <div class="thumb-row" id="thumbRow"></div>
+    </div>
+
+    <div>
+      <span class="eyebrow" id="bookCategory">Category</span>
+      <h1 class="book-title" id="bookTitle">Title</h1>
+      <div class="book-author" id="bookAuthor">by Author</div>
+
+      <div class="book-meta-row">
+        <span id="bookPages"></span>
+        <span id="bookFormat"></span>
+      </div>
+
+      <p class="book-desc" id="bookDesc"></p>
+
+      <div class="category-tags" id="bookTags"></div>
+
+      <div class="buy-panel glass">
+        <div class="price-row">
+          <span class="price-big" id="priceDisplay"></span>
+          <div class="currency-toggle" id="currencyToggle">
+            <button data-cur="inr" class="active">₹ INR</button>
+            <button data-cur="usd">$ USD</button>
+          </div>
+        </div>
+
+        <input type="email" id="checkoutEmail" placeholder="Your email — we'll send your download link here"
+          style="width:100%; padding:13px 16px; margin-bottom:12px; border-radius:10px; border:1px solid var(--glass-border);
+          background:var(--glass-fill-strong); color:var(--parchment-100); font-family:var(--mono); font-size:0.88rem; box-sizing:border-box;">
+
+        <div id="razorpaySection">
+          <button class="btn" id="buyBtnRazorpay" style="width:100%;">Pay with Razorpay</button>
+          <div class="buy-note">For customers in India. Your download link is generated the moment payment is verified.</div>
+        </div>
+
+        <div id="wiseSection" style="display:none;">
+          <button class="btn" id="buyBtnWise" style="width:100%;">Pay with Wise</button>
+          <div class="buy-note">For international customers. You'll be taken to a secure Wise payment page; your download link follows once payment is confirmed.</div>
+        </div>
+
+        <div id="checkoutStatus" class="buy-note" style="min-height:1.2em;"></div>
+
+        <div class="buy-note" style="margin-top:10px; opacity:0.6;">Not seeing the right option? <a href="#" id="togglePaymentRegion" style="color:var(--wheat-400); text-decoration:underline;">Switch to <span id="toggleRegionLabel">international payment</span></a>.</div>
+
+        <button id="samplePreviewBtn" class="btn-ghost glass" style="width:100%; margin-top:16px; padding:12px; border-radius:10px; cursor:pointer; font-family:var(--mono); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; display:none;">Download Free Sample</button>
+      </div>
+
+      <div class="ad-slot glass" data-ad-type="article">
+        <span class="ad-label">Advertisement</span>
+        <!-- AdSense unit: sits below the buy panel, on every book's own page -->
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="/assets/js/book.js"></script>
+
+</body>
+</html>

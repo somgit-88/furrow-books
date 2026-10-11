@@ -1,0 +1,11 @@
+# Old flat URLs -> clean URLs (so any link already shared keeps working).
+/index.html              /                          301
+/book.html               /book/                     301
+/about.html              /about/                    301
+/contact.html            /contact/                  301
+/terms-and-conditions.html  /terms-and-conditions/  301
+/privacy-policy.html     /privacy-policy/           301
+/refund-policy.html      /refund-policy/            301
+/digital-delivery.html   /digital-delivery/         301
+/payment-help.html       /payment-help/             301
+/download-help.html      /download-help/            301
